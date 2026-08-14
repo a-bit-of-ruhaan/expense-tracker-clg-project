@@ -40,7 +40,7 @@ with col2:
 st.divider()
 
 # --- NEW SECTION: HISTORY SYSTEM ---
-st.subheader("📋 Saved Expenses History")
+st.subheader("Saved Expenses History")
 
 if st.session_state.expenses:
     # Convert your raw saved memory into a readable dataframe layout
@@ -68,7 +68,7 @@ with col3:
      st.markdown("""<br>""", unsafe_allow_html=True)
      st.markdown('<div class="nav_btn_container" style="margin-top: 28px;">', unsafe_allow_html=True)
     # Using a native button combined with st.switch_page
-     if st.button("📈 View Tracks of Your Expenses", key="goto_graphs_btn", use_container_width=True):
+     if st.button("View Tracks of Your Expenses", key="goto_graphs_btn", use_container_width=True):
         st.switch_page("pages/graph.py")
 st.markdown('</div>', unsafe_allow_html=True)
 
