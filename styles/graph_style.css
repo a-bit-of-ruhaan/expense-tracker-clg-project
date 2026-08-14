@@ -1,36 +1,85 @@
-/* 1. Corrected Font Import & Token Architecture */
-@import url('https://googleapis.com');
+/* =========================================================
+   1. GOOGLE FONT + DESIGN TOKENS
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
   --bg-pure: #ffffff;
-  --bg-hover-tint: #f0fdf4;   
-  --text-dark: #0f172a;       
-  --text-muted: #64748b;      
-  --brand-green: #10b981;     
-  --border-light: #e2e8f0;    
-  --radius-standard: 10px;    
+  --bg-hover-tint: #f0fdf4;
+
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+
+  --brand-green: #10b981;
+
+  --border-light: #e2e8f0;
+
+  --radius-standard: 10px;
 }
 
-/* 2. Global Base App Rules */
-html, body, [data-testid="stAppViewContainer"] { 
-  background-color: var(--bg-pure) !important; 
-  color: var(--text-dark) !important; 
-  font-family: 'Space Grotesk', sans-serif !important; 
+
+/* =========================================================
+   2. GLOBAL BASE APP
+   ========================================================= */
+
+html,
+body,
+[data-testid="stApp"],
+[data-testid="stAppViewContainer"] {
+  background-color: var(--bg-pure) !important;
+  color: var(--text-dark) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
 }
 
-/* 3. Refined Typography Hierarchy */
-h1, h2, h3, h4, h5, h6, p, span, label, li { 
-  color: var(--text-dark) !important; 
-  font-family: 'Space Grotesk', sans-serif !important; 
+
+/* Apply font throughout Streamlit */
+
+[data-testid="stAppViewContainer"] * {
+  font-family: 'Space Grotesk', sans-serif !important;
 }
 
-h1 { 
-  font-weight: 600 !important; 
-  font-size: 2.4rem !important; 
-  letter-spacing: -0.03em;
-  text-transform: none; 
-  margin-bottom: 1.5rem;
+
+/* =========================================================
+   3. TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+li {
+  color: var(--text-dark) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
 }
+
+
+h1 {
+  font-weight: 600 !important;
+  font-size: 2.4rem !important;
+  letter-spacing: -0.03em !important;
+  text-transform: none !important;
+  margin-bottom: 1.5rem !important;
+}
+
+
+h2 {
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+}
+
+
+h3 {
+  font-weight: 600 !important;
+}
+
+
+/* Form labels */
 
 label {
   font-weight: 500 !important;
@@ -38,115 +87,339 @@ label {
   font-size: 0.9rem !important;
 }
 
-/* 4. Minimalist Forms & Input Elements */
-[data-testid="stTextInput"] input, 
-[data-testid="stDateInput"] div,
-[data-testid="stSelectbox"] div { 
-  background-color: var(--bg-pure) !important; 
-  border: 1px solid var(--border-light) !important; 
-  border-radius: var(--radius-standard) !important; 
-  color: var(--text-dark) !important; 
+
+/* =========================================================
+   4. TEXT INPUT
+   ========================================================= */
+
+[data-testid="stTextInput"] input {
+  background-color: var(--bg-pure) !important;
+
+  color: var(--text-dark) !important;
+
+  border: 1px solid var(--border-light) !important;
+
+  border-radius: var(--radius-standard) !important;
+
   padding: 0.65rem 1rem !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease !important;
 }
 
-[data-testid="stTextInput"] input:focus, 
-[data-testid="stDateInput"] input:focus { 
-  border-color: var(--brand-green) !important; 
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+
+/* Placeholder */
+
+[data-testid="stTextInput"] input::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.7 !important;
+}
+
+
+/* Focus */
+
+[data-testid="stTextInput"] input:focus {
+  border-color: var(--brand-green) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+
   outline: none !important;
 }
 
-/* 5. Clean, Positive Solid Green Buttons */
-button { 
-  background-color: var(--brand-green) !important; 
-  color: #ffffff !important; 
-  border: none !important; 
-  border-radius: var(--radius-standard) !important; 
-  font-weight: 500 !important; 
-  padding: 0.65rem 1.8rem !important; 
-  transition: opacity 0.15s ease, transform 0.1s ease !important; 
-  cursor: pointer;
+
+/* =========================================================
+   5. DATE INPUT
+   ========================================================= */
+
+[data-testid="stDateInput"] input {
+  background-color: var(--bg-pure) !important;
+
+  color: var(--text-dark) !important;
+
+  border: 1px solid var(--border-light) !important;
+
+  border-radius: var(--radius-standard) !important;
+
+  padding: 0.65rem 1rem !important;
 }
 
-button:hover { 
-  opacity: 0.92;
+
+[data-testid="stDateInput"] input:focus {
+  border-color: var(--brand-green) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+
+  outline: none !important;
 }
 
-button:active { 
-  transform: scale(0.98);
+
+/* =========================================================
+   6. SELECTBOX
+   ========================================================= */
+
+[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+  background-color: var(--bg-pure) !important;
+
+  border: 1px solid var(--border-light) !important;
+
+  border-radius: var(--radius-standard) !important;
+
+  color: var(--text-dark) !important;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease !important;
 }
 
-/* 6. Professional Metric Cards */
+
+/* Selectbox text */
+
+[data-testid="stSelectbox"] [data-baseweb="select"] * {
+  color: var(--text-dark) !important;
+}
+
+
+/* =========================================================
+   7. BUTTONS
+   ========================================================= */
+
+.stButton > button {
+  background-color: var(--brand-green) !important;
+
+  color: #ffffff !important;
+
+  border: none !important;
+
+  border-radius: var(--radius-standard) !important;
+
+  font-weight: 500 !important;
+
+  padding: 0.65rem 1.8rem !important;
+
+  transition:
+    opacity 0.15s ease,
+    transform 0.1s ease !important;
+
+  cursor: pointer !important;
+}
+
+
+/* Button text */
+
+.stButton > button p,
+.stButton > button span {
+  color: #ffffff !important;
+}
+
+
+/* Hover */
+
+.stButton > button:hover {
+  opacity: 0.92 !important;
+}
+
+
+/* Active */
+
+.stButton > button:active {
+  transform: scale(0.98) !important;
+}
+
+
+/* =========================================================
+   8. METRIC CARDS
+   ========================================================= */
+
 div[data-testid="metric-container"] {
   border: 1px solid var(--border-light) !important;
+
   border-radius: var(--radius-standard) !important;
+
   padding: 1.2rem !important;
+
   background-color: var(--bg-pure) !important;
+
   box-shadow: none !important;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease !important;
 }
+
+
+/* Hover */
 
 div[data-testid="metric-container"]:hover {
   background-color: var(--bg-hover-tint) !important;
+
   border-color: var(--brand-green) !important;
 }
+
+
+/* Metric value */
 
 [data-testid="stMetricValue"] {
   font-size: 2.3rem !important;
+
   font-weight: 600 !important;
+
   color: var(--text-dark) !important;
-  letter-spacing: -0.02em;
+
+  letter-spacing: -0.02em !important;
 }
+
+
+/* Metric label */
 
 [data-testid="stMetricLabel"] {
   text-transform: uppercase !important;
+
   font-weight: 500 !important;
+
   font-size: 0.75rem !important;
+
   letter-spacing: 0.06em !important;
+
   color: var(--text-muted) !important;
 }
 
-/* 7. Minimalist Data Charts (Vega-Lite) */
+
+/* =========================================================
+   9. VEGA-LITE / ALTair CHART
+   ========================================================= */
+
 [data-testid="stArrowVegaLiteChart"] {
   border: 1px solid var(--border-light) !important;
+
   border-radius: var(--radius-standard) !important;
+
   padding: 1.5rem !important;
+
   background-color: var(--bg-pure) !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease !important;
 }
+
 
 [data-testid="stArrowVegaLiteChart"]:hover {
   border-color: var(--brand-green) !important;
-  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.04);
+
+  box-shadow:
+    0 6px 16px rgba(16, 185, 129, 0.04) !important;
 }
 
-/* 8. Data Tables & Frames */
-[data-testid="stDataFrame"] { 
-  border: 1px solid var(--border-light) !important; 
-  border-radius: var(--radius-standard) !important; 
-  background-color: var(--bg-pure) !important; 
+
+/* =========================================================
+   10. DATAFRAME
+   ========================================================= */
+
+[data-testid="stDataFrame"] {
+  border: 1px solid var(--border-light) !important;
+
+  border-radius: var(--radius-standard) !important;
+
+  background-color: var(--bg-pure) !important;
+
+  overflow: hidden !important;
 }
 
-/* 9. Framed Clean Images */
-[data-testid="stImage"] img { 
-  border-radius: var(--radius-standard) !important; 
+
+/* =========================================================
+   11. IMAGES
+   ========================================================= */
+
+[data-testid="stImage"] img {
+  border-radius: var(--radius-standard) !important;
+
   border: 1px solid var(--border-light) !important;
 }
 
-/* 10. Subtle Hairline Layout Dividers */
-hr { 
+
+/* =========================================================
+   12. DIVIDERS
+   ========================================================= */
+
+hr {
   border: none !important;
+
   height: 1px !important;
+
   background-color: var(--border-light) !important;
+
   margin: 2.5rem 0 !important;
 }
 
-/* 11. Minimal Toast Alerts & System Callouts */
-div[data-testid="stAlert"] { 
-  background-color: var(--bg-hover-tint) !important; 
-  border: 1px solid rgba(16, 185, 129, 0.25) !important; 
-  border-radius: var(--radius-standard) !important; 
-  color: var(--text-dark) !important; 
-  padding: 0.9rem 1.4rem !important; 
+
+/* =========================================================
+   13. ALERTS / CALLOUTS
+   ========================================================= */
+
+div[data-testid="stAlert"] {
+  background-color: var(--bg-hover-tint) !important;
+
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+
+  border-radius: var(--radius-standard) !important;
+
+  color: var(--text-dark) !important;
+
+  padding: 0.9rem 1.4rem !important;
+}
+
+
+/* Alert text */
+
+div[data-testid="stAlert"] p,
+div[data-testid="stAlert"] span {
+  color: var(--text-dark) !important;
+}
+
+
+/* =========================================================
+   14. LINKS
+   ========================================================= */
+
+a {
+  color: var(--brand-green) !important;
+
+  text-decoration: none !important;
+
+  transition: opacity 0.15s ease !important;
+}
+
+
+a:hover {
+  opacity: 0.8 !important;
+}
+
+
+/* =========================================================
+   15. SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: var(--bg-pure);
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
 }
