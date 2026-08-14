@@ -9,7 +9,7 @@ with open("styles/graph_style.css", "r") as f:
 
 st.set_page_config(page_title="Expense Analytics", layout="wide")
 
-st.title("📊 Expense Analytics & History")
+st.title("Expense Analytics & History")
 st.write("Visualizing data saved from your Expense Tracker JSON file.")
 
 # Fetch raw data using your original function logic
@@ -25,7 +25,7 @@ if expenses_data:
     df['value'] = pd.to_numeric(df['value'], errors='coerce')
     
     # --- SECTION 1: DATA DISPLAY TABLE ---
-    st.subheader("📋 Saved Expenses History Table")
+    st.subheader("Saved Expenses History Table")
     st.dataframe(df.sort_values(by='date', ascending=False), use_container_width=True)
     
     st.divider()
@@ -39,11 +39,11 @@ if expenses_data:
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("📈 Spending Trend Line Chart")
+        st.subheader("Spending Trend Line Chart")
         st.line_chart(daily_totals['value'], use_container_width=True)
         
     with col2:
-        st.subheader("📊 Daily Volume Bar Chart")
+        st.subheader("Daily Volume Bar Chart")
         st.bar_chart(daily_totals['value'], use_container_width=True)
         
 else:
