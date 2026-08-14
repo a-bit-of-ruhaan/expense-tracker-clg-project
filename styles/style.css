@@ -1,0 +1,106 @@
+/* 1. Clean, Modern Typographic Base */
+@import url('https://googleapis.com');
+
+:root {
+  --bg-pure: #ffffff;
+  --bg-accent: #f2faf6;       /* Micro-tint green for structured sections */
+  --text-dark: #0f172a;       /* Clean slate charcoal for primary reading */
+  --text-muted: #64748b;      /* Neutral gray for secondary info */
+  --brand-mint: #10b981;      /* Bright, positive focal green */
+  --border-light: #e2e8f0;    /* Soft hairline border color */
+}
+
+/* 2. Global Layout & Structural Whitespace */
+html, body, [data-testid="stAppViewContainer"] { 
+  background-color: var(--bg-pure) !important; 
+  color: var(--text-dark) !important; 
+  font-family: 'Space Grotesk', sans-serif !important; 
+}
+
+/* 3. Streamlined Typography Hierarchy */
+h1, h2, h3, h4, h5, h6, p, span, label, li { 
+  color: var(--text-dark) !important; 
+  font-family: 'Space Grotesk', sans-serif !important; 
+}
+
+h1 { 
+  font-weight: 600 !important; 
+  font-size: 2.2rem !important; 
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: 500 !important;
+  color: var(--text-muted) !important;
+  font-size: 0.9rem !important;
+}
+
+/* 4. Minimal Form Fields (Crisp Hairline Focus) */
+[data-testid="stTextInput"] input, 
+[data-testid="stDateInput"] div,
+[data-testid="stSelectbox"] div { 
+  background-color: var(--bg-pure) !important; 
+  border: 1px solid var(--border-light) !important; 
+  border-radius: 8px !important; 
+  color: var(--text-dark) !important; 
+  padding: 0.6rem 0.9rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-testid="stTextInput"] input:focus, 
+[data-testid="stDateInput"] input:focus { 
+  border-color: var(--brand-mint) !important; 
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
+  outline: none !important;
+}
+
+/* 5. Refined, Clean Flat Buttons */
+button { 
+  background-color: var(--brand-mint) !important; 
+  color: #ffffff !important; 
+  border: none !important; 
+  border-radius: 8px !important; 
+  font-weight: 500 !important; 
+  padding: 0.6rem 1.6rem !important; 
+  transition: opacity 0.15s ease !important; 
+  cursor: pointer;
+}
+
+button:hover { 
+  opacity: 0.9;
+}
+
+button:active { 
+  transform: scale(0.98);
+}
+
+/* 6. Soft Minimalist Tables & Data Frames */
+[data-testid="stDataFrame"] { 
+  border: 1px solid var(--border-light) !important; 
+  border-radius: 8px !important; 
+  background-color: var(--bg-pure) !important; 
+}
+
+/* 7. Unadorned Framed Images */
+[data-testid="stImage"] img { 
+  border-radius: 8px !important; 
+  border: 1px solid var(--border-light) !important;
+}
+
+/* 8. Invisible Hairline Dividers */
+hr { 
+  border: none !important;
+  height: 1px !important;
+  background-color: var(--border-light) !important;
+  margin: 2rem 0 !important;
+}
+
+/* 9. Flat, Clean System Alerts */
+div[data-testid="stAlert"] { 
+  background-color: var(--bg-accent) !important; 
+  border: 1px solid rgba(16, 185, 129, 0.2) !important; 
+  border-radius: 8px !important; 
+  color: var(--text-dark) !important; 
+  padding: 0.8rem 1.2rem !important; 
+}
