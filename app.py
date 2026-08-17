@@ -133,10 +133,9 @@ with col4:
             st.warning("Click again to confirm clearing all data")
 
 with col5:
-    try:
-        st.image("images/image1.png", width=125)
-    except:
-        st.markdown('💼')
+    st.empty()
 
 st.markdown('</div>', unsafe_allow_html=True)
+
+st.write("Made By Ruhaan For Internship 2026")
    
