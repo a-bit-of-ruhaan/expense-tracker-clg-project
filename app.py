@@ -15,7 +15,7 @@ if "expenses" not in st.session_state:
     st.session_state.expenses = load_expenses()
 
 st.markdown('<div class="header-container">', unsafe_allow_html=True)
-st.title("💰 Expense Tracker") 
+st.title("Expense Tracker") 
 st.write("Track your daily expenses efficiently and stay on budget.")
 st.markdown('</div>', unsafe_allow_html=True) 
 
@@ -31,7 +31,7 @@ with col1:
 
 with col2: 
     st.markdown("""<div style="margin-top: 28px;">""", unsafe_allow_html=True) 
-    if st.button("✨ Add Expense", key="add_btn", use_container_width=True): 
+    if st.button("Add Expense", key="add_btn", use_container_width=True): 
         if not title.strip():
             st.error("Please enter an expense description")
         elif not value.strip():
@@ -43,7 +43,7 @@ with col2:
                     st.error("Amount must be greater than 0")
                 else:
                     add_expense(st.session_state.expenses, title.strip(), str(date), str(float_value))
-                    st.success(f"✅ '{title}' added for ${float_value:.2f}")
+                    st.success(f"'{title}' added for ${float_value:.2f}")
                     st.rerun()
             except ValueError:
                 st.error("Please enter a valid number for the amount")
