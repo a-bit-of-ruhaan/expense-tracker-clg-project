@@ -3,8 +3,9 @@ import pandas as pd
 from functions.storage import load_expenses
 
 
-with open("styles/graph_style.css", "r") as f:
+with open("styles/graph_style.css", "r", encoding="utf-8") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 
 
 st.set_page_config(page_title="Expense Analytics", layout="wide")
